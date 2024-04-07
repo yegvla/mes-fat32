@@ -1,0 +1,35 @@
+mes-fat32
+----------------------------------------------------------------------
+
+A very sloppy FAT32 driver implemented roughly using the interface of
+the sdcard driver from MES (menga-team/MES).
+
+I don't think there is any reason you would want to use this as there
+are many better alternatives, although it is very simple and uses all
+things considered < 550 bytes of memory.  A file handle will cost an
+additional 32 bytes.  It is very easy to tweak and port.
+
+In its current state it supports:
+ * Creating files
+ * Deleting files
+ * Renaming files
+ * Reading files
+ * Writing files
+ * Listing files
+ * Searching files
+
+Currently no directories, except of the root directory are supported,
+but it shouldn't require much effort abstracting the code to work on
+other directories as well.
+
+Files:
+fat32.h         The header file.
+fat32.c         The implementation.
+port/arduino    Contains a "port" of the MES driver to the Arduino
+                framework for easy testing.
+
+I found following resources very helpful for learning about FAT(32):
+ * http://www.pjrc.com/tech/8051/ide/fat32.html
+ * http://www.tavi.co.uk/phobos/fat.html
+ * http://www.csc.villanova.edu/~dprice/fall2014/slides/09_FAT32.pdf
+ * http://codeandlife.com/2012/04/02/simple-fat-and-sd-tutorial-part-1
